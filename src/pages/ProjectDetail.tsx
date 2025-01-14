@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github } from 'lucide-react';
 import SpaceBackground from '../components/SpaceBackground';
 import { projectsList } from '../data/projects';
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const project = projectsList[Number(id)];
 
   if (!project) {
@@ -15,12 +16,12 @@ const ProjectDetail = () => {
         <div className="relative z-10 flex items-center justify-center min-h-screen">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4 text-white">Project not found</h1>
-            <Link 
-              to="/projects" 
+            <button 
+              onClick={() => navigate('/projects')}
               className="text-blue-500 hover:text-blue-400 transition-colors"
             >
               Back to Projects
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -34,13 +35,13 @@ const ProjectDetail = () => {
       </div>
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 pt-20 pb-12">
-        <Link 
-          to="/projects"
+        <button 
+          onClick={() => navigate('/projects')}
           className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Projects</span>
-        </Link>
+        </button>
 
         <div className="bg-black/30 backdrop-blur-sm rounded-lg overflow-hidden">
           <div className="aspect-video">

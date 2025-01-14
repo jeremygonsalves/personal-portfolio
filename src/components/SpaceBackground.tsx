@@ -5,8 +5,6 @@ import { createNoise3D } from 'simplex-noise';
 
 const SpaceBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const fullscreenRef = useRef<HTMLButtonElement>(null);
-  let fullscreen = false;
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -27,7 +25,7 @@ const SpaceBackground: React.FC = () => {
     const init = () => {
       scene = new THREE.Scene();
 
-      camera = new THREE.PerspectiveCamera(55, containerRef.current!.clientWidth / containerRef.current!.clientHeight, 0.01, 1000);
+      camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000);
       camera.position.set(0, 0, 230);
 
       const directionalLight = new THREE.DirectionalLight("#fff", 2);
@@ -42,7 +40,7 @@ const SpaceBackground: React.FC = () => {
         antialias: true,
         alpha: true
       });
-      renderer.setSize(containerRef.current!.clientWidth, containerRef.current!.clientHeight);
+      renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(window.devicePixelRatio);
       containerRef.current!.appendChild(renderer.domElement);
 
@@ -188,10 +186,9 @@ const SpaceBackground: React.FC = () => {
     }
 
     const handleResize = () => {
-      if (!containerRef.current) return;
-      camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight;
+      camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+      renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
     init();
@@ -208,33 +205,8 @@ const SpaceBackground: React.FC = () => {
     };
   }, []);
 
-  const handleFullscreen = () => {
-    if (!fullscreen) {
-      fullscreen = true;
-      document.documentElement.requestFullscreen();
-      if (fullscreenRef.current) {
-        fullscreenRef.current.innerHTML = "Exit Fullscreen";
-      }
-    } else {
-      fullscreen = false;
-      document.exitFullscreen();
-      if (fullscreenRef.current) {
-        fullscreenRef.current.innerHTML = "Go Fullscreen";
-      }
-    }
-  };
-
   return (
-    <>
-      <div ref={containerRef} className="w-full h-screen" />
-      <button
-        ref={fullscreenRef}
-        onClick={handleFullscreen}
-        className="absolute bottom-8 right-8 border border-white rounded px-4 py-2 text-[#F9B31C] font-bold uppercase transition-all hover:bg-white hover:text-[#2a2b2f] z-50"
-      >
-        Go Fullscreen
-      </button>
-    </>
+    <div ref={containerRef} className="fixed inset-0 w-full h-full" />
   );
 };
 
