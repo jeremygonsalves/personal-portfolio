@@ -106,11 +106,12 @@ const Home = () => {
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-3xl font-bold text-center text-white mb-8">About Me</h2>
             <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-white">
-                Bilingual (French and English) data analyst with over 1 year of experience in data-driven roles focused on analytics, process optimization, and scalable data solutions. Skilled in SQL, Python, and A/B testing methodologies to inform decisions and drive user engagement, growth, and profitability. Experienced in designing intuitive dashboards, developing analytics workflows, and fostering data-driven organizational cultures. Adept at addressing ambiguous problems, formulating actionable hypotheses, and collaborating cross-functionally with technical and non-technical teams. Eager to work in dynamic environments, combining creativity, critical thinking, and a passion for redefining the financial industry with customer-focused solutions.
-
-                As an outgoing individual, I thrive in client-facing environments, where I can apply my technical skills to solve complex problems while building strong relationships. Im extremely passionate about contributing to innovative projects in industries like financial services, sports, technology, and e-commerce.
-              </p>
+                <p className="text-lg leading-relaxed text-white">
+                Hey there, I'm a Bilingual Data analyst with over 1 year of experience in data-driven roles focused on analytics, process optimization, and scalable data solutions. Skilled in SQL, Python, and A/B testing methodologies to inform decisions and drive user engagement, growth, and profitability. Experienced in designing intuitive dashboards, developing analytics workflows, and fostering data-driven organizational cultures. Adept at addressing ambiguous problems, formulating actionable hypotheses, and collaborating cross-functionally with technical and non-technical teams. Eager to work in dynamic environments, combining creativity, critical thinking, and a passion for redefining the financial industry with customer-focused solutions.
+                </p>
+                <p className="text-lg leading-relaxed text-white">
+                As an outgoing individual, I thrive in client-facing environments, where I can apply my technical skills to solve complex problems while building strong relationships. I'm extremely passionate about contributing to innovative projects in industries like financial services, sports, technology, and e-commerce.
+                </p>
               
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-center text-white mb-4">Skills & Interests</h3>
