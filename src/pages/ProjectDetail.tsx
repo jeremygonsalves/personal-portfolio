@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github } from 'lucide-react';
 import SpaceBackground from '../components/SpaceBackground';
 import { projectsList } from '../data/projects';
@@ -37,10 +37,11 @@ const ProjectDetail = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-4 pt-20 pb-12">
         <button 
           onClick={() => navigate('/projects')}
-          className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors mb-8"
+          className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors mb-8 p-2 -ml-2"
+          aria-label="Back to projects"
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Projects</span>
+          <ArrowLeft className="w-5 h-5" />
+          <span className="text-base">Back to Projects</span>
         </button>
 
         <div className="bg-black/30 backdrop-blur-sm rounded-lg overflow-hidden">
